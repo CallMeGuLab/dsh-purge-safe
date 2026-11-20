@@ -828,3 +828,27 @@
 .dshp-attn-portal .dshp-attn-capsule-go:hover,
 .dshp-attn-portal .dshp-attn-capsule-later:hover{border-color:var(--dshp-line-strong);background:var(--dshp-hover);color:var(--dshp-ink)}
 .dshp-attn-portal .dshp-attn-capsule-go:hover{background:var(--dshp-primary-hover);border-color:var(--dshp-primary-hover);color:var(--dshp-primary-ink)}
+
+
+/* ===== 窄屏（手机）适配：dock 全屏 / 头部单行 / 工作区单列 ===== */
+/* [mobile-override] 窄屏：dock 占满屏、头部单行、工作区单列 + 横滑导航 */
+@media (max-width:560px){
+  .dshp-dock.dshp-studio-dock{left:0!important;top:0!important;width:100vw!important;height:100vh!important;height:100dvh!important;max-width:none!important;max-height:none!important;min-width:0!important;border-radius:0!important;border:0!important;box-shadow:none!important}
+  .dshp-dock-resize,.dshp-dock-resize-l,.dshp-dock-resize-r,.dshp-dock-resize-b{display:none!important}
+  .dshp-dock-head{flex-wrap:nowrap!important;gap:5px!important;padding:0 var(--ui-space-2)!important;min-height:44px!important;cursor:default!important;overflow-x:auto!important;overflow-y:hidden!important;scrollbar-width:none!important}
+  .dshp-dock-head::-webkit-scrollbar{display:none!important}
+  .dshp-dock-head>*{flex-shrink:0!important}
+  .dshp-dock-head>span{flex:1 1 auto!important;min-width:0!important}
+  .dshp-dock-head button{padding:0 10px!important;font-size:var(--ui-text-helper)!important}
+  .dshp-dock-head>b{display:none!important}
+  .dshp-dock-modes{flex:0 0 auto!important;min-width:0}
+  .dshp-dock-body{flex:1 1 auto!important;min-height:0!important;overflow:auto!important}
+  .dshp-studio-layout{grid-template-columns:minmax(0,1fr)!important;grid-template-rows:auto minmax(0,1fr)!important;min-height:0!important}
+  .dshp-studio-nav{display:flex!important;flex-direction:row!important;align-items:center!important;gap:6px!important;height:auto!important;min-height:0!important;padding:8px 10px!important;overflow-x:auto!important;overflow-y:hidden!important;border-right:0!important;border-bottom:1px solid var(--dshp-dark-line)!important}
+  .dshp-studio-nav-heading{display:none!important}
+  .dshp-studio-nav-list{display:flex!important;flex-direction:row!important;flex-wrap:nowrap!important;gap:6px!important;padding:0!important;min-width:0!important;max-width:100%!important;overflow-x:auto!important;overflow-y:hidden!important;scrollbar-width:thin}
+  .dshp-studio-nav-item{flex:0 0 auto!important;width:auto!important;min-width:88px!important;min-height:36px!important;padding:6px 12px!important;align-items:center!important;text-align:center!important}
+  .dshp-studio-nav-description{display:none!important}
+  .dshp-studio-main{min-width:0!important;min-height:0!important;overflow:auto!important}
+  .dshp-dock-body .dshp-root{padding:12px!important;gap:12px!important}
+}
