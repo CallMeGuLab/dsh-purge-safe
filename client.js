@@ -5785,6 +5785,11 @@ body[data-ds-dark-theme] .dshp-rewind-item span{color:var(--dsw-alias-label-tert
 			if (!sessions) return () => {};
 			const tick = async () => {
 				try {
+					/* 全局面板（插件 / 自动化任务）占着中间栏时，会话面是卸载的。
+					   这时候调 openSession() 会走 replaceMain(..., 'reveal') →
+					   layout.selectPanel(null)，把用户从面板踢回会话 —— 同一类
+					   「后台检查抢走导航」的问题。记录先不消费，等会话面回来再开。 */
+					if (typeof document !== "undefined" && document.querySelector("[data-global-panel]")) return;
 					const data = await apiJson("/dsh-purge-safe/rewind");
 					if (!data || !data.sessionId || !data.at || data.at <= rewindSeenAt) return;
 					rewindSeenAt = data.at;
